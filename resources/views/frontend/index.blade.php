@@ -455,9 +455,19 @@
             </div>
           </div>
 
+             
         </div>
 
+            <div class="my_custom_class_show_all">
+
+                <a href="{{url('show_all_team_member')}}" class="show_all_btn">show all</a>
+
+            </div>
+
       </div>
+
+       
+
     </section><!-- End Team Section -->
 
     <!-- ======= Pricing Section ======= -->

@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('frontend.index');
 });
 
-Route::get('contact', function () {
-    echo "Contact Page this";
+Route::get('show_all_team_member', function () {
+     return view('frontend.show_all_team_member');
+});
+
+Route::get('contact_form', function () {
+     return view('frontend.contact_form');
 });
