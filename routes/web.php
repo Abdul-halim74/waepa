@@ -46,6 +46,10 @@ Route::get('contact', function () {
      return view('frontend.contact');
 });
 
+Route::get('single_member_profile', function () {
+     return view('frontend.single_member_profile');
+});
+
 
 
 // backend routes
@@ -55,3 +59,14 @@ Route::get('admin', function(){
 	return view('backend.index');
 });
 
+Route::get('admin/create_blog', function(){
+    
+    return view('backend.blog.create_blog');
+});
+
+Route::post('admin/create_blog_action', 'Backend_Controllers\AdminBlogController@bloginsert');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

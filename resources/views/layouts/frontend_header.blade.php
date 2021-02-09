@@ -19,6 +19,8 @@
   <!-- Vendor CSS Files -->
   <link href="{{ asset('frontend_assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('frontend_assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  
   <link href="{{ asset('frontend_assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
   <link href="{{ asset('frontend_assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
   <link href="{{ asset('frontend_assets/vendor/venobox/venobox.css') }}" rel="stylesheet">

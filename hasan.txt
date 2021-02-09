@@ -1,0 +1,3 @@
+09/02/ 21 change RouteServiceProvide.php te public const HOME = '/admin'; jekhane age chilo '/home'
+
+09/02/ 21 change AuthenticatesUser.php  return view('backend.login'); 177 line  : redirect('/login');

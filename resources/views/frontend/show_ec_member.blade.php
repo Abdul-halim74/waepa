@@ -20,9 +20,9 @@
 
               <div class="col-lg-4">
                 <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
+                  <div class="pic"><a href="{{url('single_member_profile')}}"><img src="{{ asset('frontend_assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></a></div>
                   <div class="member-info">
-                    <h4>Walter White</h4>
+                    <a href="{{url('single_member_profile')}}"><h4>Walter White</h4></a>
                     <span>Chief Executive Officer</span>
                     <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
                     <div class="social">

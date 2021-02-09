@@ -1998,3 +1998,32 @@ section {
   font-size: 14px;
   color: #00805d;
 }
+
+
+.team .member h4:hover{
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #009970;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.profile-user-img {
+    border: 3px solid #adb5bd;
+    margin: 0 auto;
+    padding: 3px;
+    width: 100px;
+}
+.profile-username {
+    font-size: 21px;
+    margin-top: 5px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #009970 !important;
+}
+
