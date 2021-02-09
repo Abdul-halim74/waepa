@@ -17,10 +17,41 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-Route::get('show_all_team_member', function () {
-     return view('frontend.show_all_team_member');
+Route::get('show_ec_member', function () {
+     return view('frontend.show_ec_member');
 });
 
-Route::get('contact_form', function () {
-     return view('frontend.contact_form');
+Route::get('show_life_member', function () {
+     return view('frontend.show_life_member');
 });
+
+Route::get('show_general_member', function () {
+     return view('frontend.show_general_member');
+});
+
+Route::get('show_testimonial', function () {
+     return view('frontend.show_testimonial');
+});
+
+
+Route::get('member_registration', function () {
+     return view('frontend.member_registration');
+});
+Route::get('blog', function () {
+     return view('frontend.blog');
+});
+
+
+Route::get('contact', function () {
+     return view('frontend.contact');
+});
+
+
+
+// backend routes
+
+Route::get('admin', function(){
+	
+	return view('backend.index');
+});
+
