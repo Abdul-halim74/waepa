@@ -7,6 +7,8 @@
 
   @include('layouts.backend_top_link')
 
+  @yield('css')
+
 <style type="text/css">
 	div.dropdown-menu.show {
 
@@ -37,6 +39,7 @@
 <!-- ./wrapper -->
   @include('layouts.backend_under_script')
 
+@yield('js')
 
 
 </body>
