@@ -15,26 +15,26 @@
 
          
           <div class="col-lg-9 offset-lg-2 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="" method="post"  class="member_registration_form">
-              
+            <form action="{{ route('member.register')}}" method="post"  class="member_registration_form" enctype="multipart/form-data">
+              @csrf
               <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label">Name</label>
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-lg-8">
-                  <input type="text" class="form-control" id="" placeholder="Enter Your Name">
+                  <input type="text" class="form-control" id="" name="name" placeholder="Enter Your Name">
                 </div>
               </div>
 
                <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label">Position</label>
                 <div class="col-lg-8">
-                  <input type="text" class="form-control" id="" placeholder="Enter Your Position">
+                  <input type="text" class="form-control" id="" name="position" placeholder="Enter Your Position">
                 </div>
               </div>
 
                <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label">Organization</label>
                 <div class="col-lg-8">
-                  <input type="text" class="form-control" id="" placeholder="Organization Name">
+                  <input type="text" class="form-control" id="" name="organiz" placeholder="Organization Name">
                 </div>
               </div>
 
@@ -42,14 +42,14 @@
                <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label">Mailing Address</label>
                 <div class="col-lg-8">
-                  <textarea class="form-control"></textarea>
+                  <textarea class="form-control" name="mail_addrress"></textarea>
                 </div>
               </div>
 
                <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label">Office Res</label>
                 <div class="col-lg-8">
-                   <textarea class="form-control"></textarea>
+                   <textarea class="form-control" name="office_res"></textarea>
                 </div>
               </div>
 
@@ -59,21 +59,21 @@
                <div class="form-group row">
                 <label for="" class="offset-lg-2 col-form-label">1.</label>
                 <div class="col-lg-8">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" name="qulification_1" id="" placeholder="">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="" class="offset-lg-2 col-form-label">2.</label>
                 <div class="col-lg-8">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" id="" name="qulification_2" placeholder="">
                 </div>
               </div>
 
                <div class="form-group row">
                 <label for="" class="offset-lg-2 col-form-label">3.</label>
                 <div class="col-lg-8">
-                  <input type="text" class="form-control" id="" placeholder="">
+                  <input type="text" class="form-control" id="" name="qulification_3" placeholder="">
                 </div>
               </div>
 
@@ -84,7 +84,7 @@
               <div class="form-group row">
                 <label for="" class=" col-form-label">Off : </label>&nbsp;&nbsp;&nbsp;
                 <div class="">
-                  <input type="text" class="form-control" id="" placeholder="Enter Your Name">
+                  <input type="text" class="form-control" id="" name="office_contact" placeholder="Enter Your Name">
                 </div>
               </div>
 
@@ -92,7 +92,7 @@
                  <div class="form-group row" >
                   <label for="" class=" col-form-label" style="margin-left: 75px;">Res : </label>&nbsp;
                   <div class="">
-                    <input type="text" class="form-control" id="" placeholder="Enter Your Name">
+                    <input type="text" class="form-control" id="" name="res_contract" placeholder="Enter Your Name">
                   </div>
               </div>
 
@@ -104,7 +104,7 @@
               <div class="form-group row">
                 <label for="" class=" col-form-label">Fax : </label>&nbsp;&nbsp;&nbsp;
                 <div class="">
-                  <input type="text" class="form-control" id="" placeholder="Enter Your Name">
+                  <input type="text" class="form-control" name="fax" id="" placeholder="Enter Your Name">
                 </div>
               </div>
 
@@ -112,25 +112,27 @@
                  <div class="form-group row" >
                   <label for="" class=" col-form-label" style="margin-left: 50px;">Mobile : </label>&nbsp;
                   <div class="">
-                    <input type="text" class="form-control" id="" placeholder="Enter Your Name">
+                    <input type="text" class="form-control" name="mobile" id="" placeholder="Enter Your Name">
                   </div>
               </div>
 
 
             </div>
 
-            <div class="form-group row">
+             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label">Email : </label>
                 <div class="col-lg-8">
-                  <input type="email" class="form-control" id="" placeholder="Enter email">
+                  <input type="email" class="form-control" id="" name="email" placeholder="Enter email">
                 </div>
-              </div>
+              </div> 
+
+              
 
 
               <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label">Web Page (URL) : </label>
                 <div class="col-lg-8">
-                  <input type="text" class="form-control" id="" placeholder="Enter Web Page URL">
+                  <input type="text" class="form-control" id="" name="web_acces" placeholder="Enter Web Page URL">
                 </div>
               </div>
 
@@ -143,12 +145,12 @@
                  
 
                  <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <input class="form-check-input" type="radio" name="yes" id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Yes</label>
               </div>
 
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <input class="form-check-input" type="radio" name="no" id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">No</label>
               </div>
 
@@ -159,7 +161,7 @@
 
                <label for="" class="col-sm-2 col-form-label">User Image</label>
 
-              <input type="file" name="">
+              <input type="file" name="user_img">
            </div>
 
 
@@ -168,12 +170,12 @@
          
              <label for="" class=" col-form-label" >Date : </label>&nbsp;&nbsp;&nbsp;
 
-              <input type="date" name="">
+              <input type="date" name="date">
 
                 
             <label for="" class=" col-form-label" style="">Signature : </label>&nbsp;&nbsp;&nbsp;
            
-              <input type="file" name="">
+              <input type="file" name="sinature_img">
                
             
 

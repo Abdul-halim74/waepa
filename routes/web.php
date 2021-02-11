@@ -37,9 +37,7 @@ Route::get('show_testimonial', function () {
 Route::get('member_registration', function () {
      return view('frontend.member_registration');
 });
-Route::get('blog', function () {
-     return view('frontend.blog');
-});
+Route::get('blog', 'Frontend_Controllers\FrontendBlogController@showblog');
 
 
 Route::get('contact', function () {
@@ -59,12 +57,33 @@ Route::get('admin', function(){
 	return view('backend.index');
 });
 
-Route::get('admin/create_blog', function(){
-    
-    return view('backend.blog.create_blog');
-});
+
+
+Route::get('admin/create_blog_category', 'Backend_Controllers\AdminBlogController@blogcategoryshow');
+
+
+
+
+Route::get('admin/create_blog', 'Backend_Controllers\AdminBlogController@create_blog');
 
 Route::post('admin/create_blog_action', 'Backend_Controllers\AdminBlogController@bloginsert');
+
+Route::post('admin/create_blog_category_action', 'Backend_Controllers\AdminBlogController@blogcategoryinsert');
+
+Route::get('admin/blog_list', 'Backend_Controllers\AdminBlogController@blogshow');
+Route::post('admin/singleblogshow', 'Backend_Controllers\AdminBlogController@single_blog_show')->name('admin.singleblogshow');
+
+
+Route::post('admin/singleblogdelete', 'Backend_Controllers\AdminBlogController@single_blog_delete')->name('admin.singleblogdelete');
+
+
+Route::get('admin/blog/edit/{id}', 'Backend_Controllers\AdminBlogController@single_blog_edit')->name('admin.singleblogedit');
+
+
+Route::post('admin/update_blog_action', 'Backend_Controllers\AdminBlogController@single_blog_update')->name('admin.singleblogupdate');
+
+
+Route::post('registration', 'member\registrationController@member_register')->name('member.register');
 
 
 Auth::routes();

@@ -1,10 +1,6 @@
 @extends('layouts.master_backend')
 
-@section('css')
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
-
-@endsection
 
 
 @section('content')
@@ -47,6 +43,21 @@
                 <div class="card-body">
 
                   <div class="form-group">
+                    <label for="exampleInputEmail1">Select Blog Category</label>
+
+                      <select class="selectpicker form-control" name="blog_category[]" multiple data-live-search="true">
+                       
+                       @foreach($all_blog_cat as $single_blog_cat)
+
+                        <option value="{{$single_blog_cat->id}}">{{$single_blog_cat->category_name}}</option>
+
+                       @endforeach
+
+                      </select>
+
+                   </div>
+
+                  <div class="form-group">
                     <label for="exampleInputEmail1">Title</label>
                     <input type="text" class="form-control" id="" name="title" placeholder="Enter Blog Heading">
                   </div>
@@ -60,12 +71,12 @@
 
                   
                   <div class="form-group">
-                    <label for="exampleInputFile">Image</label>
+                    <label for="exampleInputFile">Image </label> <span>(It should at least 1024 * 768 px)</span>
 
                     <div class="form-group">
                      
 
-                        <input type="file" class="form-control" name="image">
+                        <input type="file" class="form-control" name="blog_image">
                     
                      
                     </div>
@@ -93,7 +104,6 @@
 
 @section('js')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
 
 
   @if(Session::has('status'))
@@ -103,7 +113,7 @@
   	</script>
 
   @endif
-  
+
 
 @endsection
 
