@@ -161,11 +161,23 @@ return view('backend.blog.bloglist', compact('all_blog_info'));
 
     	$single_post_info = DB::table('blogs')->find($id);
 
-
+    	$all_categories = DB::table('blog_categories')->get();
     	// echo "<pre>";
-    	// print_r($single_post_info);
+    	// print_r($all_categories);die; = $blog_categories;
 
-    	return view('backend.blog.edit_blog', compact('single_post_info'));
+      $blog_categories = $single_post_info->blog_categories;
+      $blog_categories = explode(",", $blog_categories);
+
+      
+
+      $data = [
+        "all_categories" => $all_categories,
+        "single_post_info" => $single_post_info,
+        "blog_categories" => $blog_categories,
+      ];
+
+
+    	return view('backend.blog.edit_blog', $data);
 
     }
 

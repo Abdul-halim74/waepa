@@ -38,7 +38,41 @@
 
                   <li class="d-flex align-items-center"><i class="fas fa-comment" style="margin: 10px;"></i> <a href="">12
                       Comments</a></li>
+
+                  
+                      
+
                 </ul>
+
+               <ul>
+                 
+
+                  <li class="d-flex align-items-center"> <a href="">Categories :
+
+
+                    <?php 
+                    $cat = $single_blog->blog_categories;
+                    $cat_arry= explode(',', $cat);
+                    foreach($cat_arry as $val)
+                    {
+                      
+                      $data = DB::table('blog_categories')->where('id', $val)->first();
+                      /*echo "<pre>";
+                      print_r($data);*/
+                      //echo $data->category_name."<br>";
+                      ?>
+                      <span class="badge badge-pill badge-primary"> <?php echo $data->category_name." "; ?></span>
+
+                      
+
+                        <?php
+
+                    }
+                     ?>
+                     
+                      </a></li>
+
+               </ul> 
               </div>
 
 	<div class="text-center">

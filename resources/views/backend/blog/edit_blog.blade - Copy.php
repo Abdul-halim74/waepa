@@ -68,18 +68,31 @@
                       <select class="selectpicker form-control" name="blog_category[]" multiple data-live-search="true">
                         
 
-                        <option value="">Select Category</option>
+                        
 
                        @foreach($all_categories as $single_blog_cat)
-                        <option value="{{ $single_blog_cat->id }}"
 
-                            @if(in_array($single_blog_cat->id, $blog_categories ))  
-                              selected
-                            @endif
+                         <?php 
+                        $cat = $single_post_info->blog_categories;
+                        $cat_arry= explode(',', $cat);
+                        foreach($cat_arry as $val)
+                        {
 
-                          >{{ $single_blog_cat->category_name }}</option> 
+                          ?>
+
+                        <option value="{{$single_blog_cat->id}}"  
+                          @if($val == $single_blog_cat->id)
                           
-                          <!-- here , single_blog_cat from category table and  blog_categories from blogs tabale  -->          
+                          {{"selected"}}
+                          @endif
+                         >{{$single_blog_cat->category_name}}</option>
+
+
+                           <?php
+
+                      }
+                       ?>
+
                        @endforeach
 
                       </select>
