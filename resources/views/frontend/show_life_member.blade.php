@@ -1,4 +1,7 @@
-@extends('layouts.frontend_header')
+@extends('layouts.master_frontend')
+  <!-- ======= Hero Section ======= -->
+
+  @section('content')
 
 
 
@@ -93,4 +96,4 @@
       </div>
     </section><!-- End Team Section -->
 
-@extends('layouts.frontend_footer')
+  @endsection

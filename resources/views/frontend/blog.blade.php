@@ -1,6 +1,22 @@
- @extends('layouts.frontend_header')
+@extends('layouts.master_frontend')
+  <!-- ======= Hero Section ======= -->
+@section('css')
 
+<style type="text/css">
 
+.page-item.active .page-link {
+     
+      background-color:#ff284f !important;
+      border-color:#ff284f !important;
+  }
+
+</style>
+
+@endsection
+
+  @section('content')
+
+ <br>
  <br>
  <br>
  <!-- ======= Blog Section ======= -->
@@ -32,15 +48,46 @@
                   <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$single_blog_info->created_at}}</time></a></li>
                   <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="blog-single.html">12
                       Comments</a></li>
+
+                   <li class="d-flex align-items-center"><i class="fa fa-list-alt" aria-hidden="true"></i> <a href="blog-single.html">Categories : 
+
+
+                    <?php 
+                     $cat = $single_blog_info->blog_categories;
+                    $cat_arry= explode(',', $cat);
+                    foreach($cat_arry as $val)
+                    {
+                      
+                      $data = DB::table('blog_categories')->where('id', $val)->first();
+                      /*echo "<pre>";
+                      print_r($data);*/
+                      //echo $data->category_name."<br>";
+                      ?>
+                      <span class="badge badge-pill badge-danger"> <?php echo $data->category_name." "; ?></span>
+
+                      
+
+                        <?php
+
+                    }
+                     ?>
+
+                   </a></li>
+                      
+
                 </ul>
+
+
               </div>
+
+
 
               <div class="entry-content">
                 <p>
                   {{ \Illuminate\Support\Str::limit($single_blog_info->blog_content, 400, $end='...') }}
                 </p>
                 <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
+                  <a href="{{url('blog_details')}}/{{$single_blog_info->id}}">Read More</a>
                 </div>
               </div>
 
@@ -49,15 +96,7 @@
             @endforeach
           
 
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                <li class="disabled"><i class="icofont-rounded-left"></i></li>
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
-              </ul>
-            </div>
+            {{ $all_blog_info->links() }}
 
           </div><!-- End blog entries list -->
 
@@ -75,12 +114,13 @@
               <h3 class="sidebar-title">Categories</h3>
               <div class="sidebar-item categories">
                 <ul>
-                  <li><a href="#">General <span>(25)</span></a></li>
-                  <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                  <li><a href="#">Travel <span>(5)</span></a></li>
-                  <li><a href="#">Design <span>(22)</span></a></li>
-                  <li><a href="#">Creative <span>(8)</span></a></li>
-                  <li><a href="#">Educaion <span>(14)</span></a></li>
+                  @foreach($all_blog_categories as $single_blog_category)
+
+                  <li><a href="#">{{$single_blog_category->category_name}} <span>(25)</span></a></li>
+                 
+
+                @endforeach
+
                 </ul>
 
               </div><!-- End sidebar categories-->
@@ -89,7 +129,7 @@
 
               <div class="sidebar-item recent-posts">
 
-                @foreach($all_blog_info as $single_blog)
+                @foreach($recent_blogs as $single_blog)
                 <div class="post-item clearfix">
                   <img src="{{ asset('uploads/blog_image')}}/{{$single_blog->blog_image}}" alt="">
                   <h4><a href="blog-single.html">{{$single_blog->blog_heading}}</a></h4>
@@ -112,4 +152,6 @@
     </section><!-- End Blog Section -->
 
 
-     @extends('layouts.frontend_footer')
+  @endsection
+
+

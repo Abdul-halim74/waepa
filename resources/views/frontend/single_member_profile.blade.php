@@ -1,5 +1,7 @@
-@extends('layouts.frontend_header')
+@extends('layouts.master_frontend')
+  <!-- ======= Hero Section ======= -->
 
+  @section('content')
 
       
 	          
@@ -32,19 +34,7 @@
 
                 <p class="text-muted text-center">Software Engineer</p>
 
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                  </li>
-                </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+               
               </div>
               <!-- /.card-body -->
             </div>
@@ -57,43 +47,272 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#about_me" data-toggle="tab">About Me</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#personal_info" data-toggle="tab">Personal Info</a></li>
+
+                  <li class="nav-item"><a class="nav-link" href="#academic" data-toggle="tab">Academic</a></li>
+
+                  <li class="nav-item"><a class="nav-link" href="#professional" data-toggle="tab">Professional</a></li>
+                  
+                  <li class="nav-item"><a class="nav-link" href="#achievement" data-toggle="tab">Achievement</a></li>
+
                  
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Edit</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab" style="display: none;">Edit</a></li>
                 </ul>
               </div><!-- /.card-header -->
+
+
               <div class="card-body">
                 <div class="tab-content">
-                  <div class="active tab-pane" id="about_me">
-                    <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                  <div class="active tab-pane" id="personal_info">
 
-                <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
-                </p>
+                      <strong><i class="fas fa-info-circle "></i> Name </strong>
 
-                <hr>
+                        <p class="text-muted">
+                         Abdul Halim
+                        </p>
 
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                        <hr>
 
-                <p class="text-muted">Malibu, California</p>
+                        <strong><i class="fas fa-envelope-square"></i> Email</strong>
 
-                <hr>
+                        <p class="text-muted">halimkhanfeni7@gmail.com</p>
 
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+                        <hr>
 
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
+                        <strong><i class="fas fa-user-tag"></i> Designation</strong>
+                         <p class="text-muted">Sowtare Engineer at Venture Solutions Ltd</p>
 
-                <hr>
 
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+                        <p class="text-muted">
+                          <span class="tag tag-danger">UI Design</span>
+                          <span class="tag tag-success">Coding</span>
+                          <span class="tag tag-info">Javascript</span>
+                          <span class="tag tag-warning">PHP</span>
+                          <span class="tag tag-primary">Node.js</span>
+                        </p>
 
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                        <hr>
+
+                        <strong><i class="far fa-file-alt mr-1"></i> Contact Number</strong>
+
+                        <p class="text-muted">01854-109774</p>
+
+                  </div>
+
+
+                  <div class=" tab-pane" id="academic">
+
+                     <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Academic 1</h4>
+                      <strong><i class="fas fa-info-circle "></i> Exam Title </strong>
+
+                        <p class="text-muted">
+                         SSC (Secondary School Certificate)
+                        </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
+
+                        <p class="text-muted">Science</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-university"></i> Institute Name</strong>
+                         <p class="text-muted">Dhaka City School & College, Dhaka</p>
+
+
+                       
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> Result Type</strong>
+
+                        <p class="text-muted">Grade </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> CGPA / GPA</strong>
+
+                        <p class="text-muted">5 Out of (5)</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-calendar-week"></i>Year of Passing </strong>
+
+                        <p class="text-muted">2014</p>
+
+                       
+                          <hr>
+
+                          <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Academic 2</h4>
+                      <strong><i class="fas fa-info-circle "></i> Exam Title </strong>
+
+                        <p class="text-muted">
+                         HSC / Diploma
+                        </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
+
+                        <p class="text-muted">Science</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-university"></i> Institute Name</strong>
+                         <p class="text-muted">Dhaka City School & College, Dhaka</p>
+
+
+                       
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> Result Type</strong>
+
+                        <p class="text-muted">Grade </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> CGPA / GPA</strong>
+
+                        <p class="text-muted">4.50 Out of (5)</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-calendar-week"></i>Year of Passing </strong>
+
+                        <p class="text-muted">2016</p>
+
+                       
+                          <hr>
+                        
+
+                          <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Academic 3</h4>
+                      <strong><i class="fas fa-info-circle "></i> Exam Title </strong>
+
+                        <p class="text-muted">
+                         BSC (Bachelor of Science)
+                        </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
+
+                        <p class="text-muted">CSE</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-university"></i> Institute Name</strong>
+                         <p class="text-muted">Northern University Bangladesh</p>
+
+
+                       
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> Result Type</strong>
+
+                        <p class="text-muted">Grade </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> CGPA / GPA</strong>
+
+                        <p class="text-muted">3.50 Out of (4)</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-calendar-week"></i>Year of Passing </strong>
+
+                        <p class="text-muted">2020</p>
+
+                       
+                          <hr>
+
+
+                  </div>
+
+
+
+                    <div class=" tab-pane" id="professional">
+
+                     <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Profession 1</h4>
+                      <strong><i class="fas fa-info-circle "></i> Company Name </strong>
+
+                        <p class="text-muted">
+                        Venture solutions Ltd
+                        </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-object-group"></i>  Company Type </strong>
+
+                        <p class="text-muted"> IT Firm</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-university"></i> Designation </strong>
+                         <p class="text-muted"> Junior software Engineer</p>
+
+
+                       
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> Department </strong>
+
+                        <p class="text-muted"> Software Development </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> Responsibilities </strong>
+
+                        <p class="text-muted"> Existing Software live support and create new software .</p>
+
+                        <hr>
+
+                        <strong><i class="fa fa-map-marker" aria-hidden="true"></i> Company Location</strong>
+
+                        <p class="text-muted"> Motijheel, Arambag,  Dhaka</p>
+
+                       
+                          <hr>
+
+                           <strong><i class="fas fa-calendar-week"></i> Employment Period</strong>
+
+                        <p class="text-muted">  12/1/2019 To Continue</p>
+
+                       
+                          <hr>
+
+
+
+                  </div>
+
+                   <div class=" tab-pane" id="achievement">
+
+                     <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Achievement 1</h4>
+                      <strong><i class="fas fa-info-circle "></i> Debating Competetion </strong>
+
+                        <p class="text-muted">
+                          Arranged By : Northern University Bangladesh 
+                        </p>
+
+                        <hr>
+
+
+                        <strong><i class="fas fa-medal"></i> Winnig Type </strong>
+
+                        <p class="text-muted">
+                         First Prize
+                        </p>
+
+                        <hr>
+
+                       
+
+
+
                   </div>
                 
 
@@ -160,4 +379,4 @@
 
 
 
-@extends('layouts.frontend_footer')
+  @endsection

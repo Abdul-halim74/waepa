@@ -1,11 +1,112 @@
 
-@extends('layouts.frontend_header')
+@extends('layouts.master_frontend')
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-      <h1>Your New Online Presence with Bethany</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+@section('css')
+
+<style type="text/css">
+  .carousel_btn{
+
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 25px;
+    transition: 0.5s;
+    margin-top: 10px;
+   
+    color: #fff;
+   background: #ff284f;
+
+  }
+
+  .carousel_btn:hover{
+    color: #fff !important;
+    border: 1px solid #fff;
+  }
+</style>
+
+@endsection
+
+
+  @section('content')
+
+  <section id="" class="" style="padding-top: 70px !important;">
+    <div class="" data-aos="fade-in" data-aos-delay="200">
+     
+
+          <div id="carouselExampleIndicators" class="carousel slide">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+             
+            </ol>
+
+            <div class="carousel-inner " style="background: black;">
+
+             
+
+              <!-- first slide -->
+              <div class="carousel-item active" style="background-image:url( {{ asset('frontend_assets/img/slider_img/Slide1.jpg') }} ); background-repeat: no-repeat;width: 100%;">
+
+                <div class="carousel-caption d-md-block">
+                   <h3 data-animation="animated bounceInLeft">
+                    This is the caption for slide 1
+                  </h3>
+
+                  <h3 data-animation="animated bounceInUp">
+                    This is the caption for slide 1
+                  </h3>
+                   <a class="carousel_btn" href="{{url('member_registration')}}">Now a Member</a>
+                </div>
+              </div>
+
+               <!-- second slide -->
+              <div class="carousel-item  " style="background-image:url( {{ asset('frontend_assets/img/slider_img/Slide2.jpg') }} ); background-repeat: no-repeat;width: 100%;">
+                <div class="carousel-caption d-md-block">
+                  <h3 data-animation="animated bounceInLeft">
+                    This is the caption for slide 2
+                  </h3>
+                  <h3 data-animation="animated bounceInRight">
+                    This is the caption for slide 2
+                  </h3>
+                  <a class="carousel_btn" href="{{url('member_registration')}}">Now a Member</a>
+                </div>
+              </div>
+
+
+               <!-- third slide -->
+              <div class="carousel-item  " style="background-image:url( {{ asset('frontend_assets/img/slider_img/Slide3.jpg') }} ); background-repeat: no-repeat;width: 100%;">
+                <div class="carousel-caption d-md-block">
+                  <h3 data-animation="animated bounceInLeft">
+                    This is the caption for slide 3
+                  </h3>
+                  <h3 data-animation="animated bounceInRight">
+                    This is the caption for slide 3
+                  </h3>
+                  <a class="carousel_btn" href="{{url('member_registration')}}">Now a Member</a>
+                </div>
+              </div>
+
+             
+
+
+            </div>
+
+            <!-- controls -->
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
+
     </div>
   </section><!-- End Hero -->
 
@@ -78,33 +179,10 @@
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
-      <div class="container">
+      
+        <h1 class="text-center">Advertisement</h1>
+        
 
-        <div class="row counters">
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">232</span>
-            <p>Clients</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">521</span>
-            <p>Projects</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">1,463</span>
-            <p>Hours Of Support</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">15</span>
-            <p>Hard Workers</p>
-          </div>
-
-        </div>
-
-      </div>
     </section><!-- End Counts Section -->
 
     <!-- ======= Why Us Section ======= -->
@@ -556,6 +634,58 @@
 
     </section><!-- End Team Section -->
 
+
+      <!-- ======= Notice Section ======= -->
+    <section id="notice" class="notice section-bg">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="section-title" data-aos="fade-right">
+              <h2>Notices</h2>
+              <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+            </div>
+          </div>
+          <div class="col-lg-8">
+          
+
+              <a href="">Notice 1</a> <br>
+              <hr>
+              <a href="">Notice 2</a>
+
+               <hr>
+              <a href="">Notice 3</a>
+
+               <hr>
+              <a href="">Notice 4</a>
+
+               <hr>
+              <a href="">Notice 5</a>
+
+               <hr>
+              <a href="">Notice 6</a>
+
+               <hr>
+              <a href="">Notice 7</a>
+
+
+          
+
+          </div>
+        </div>
+
+      </div>
+
+      <br>
+       <div class="text-center custom_margin_top">
+      
+          <a href="{{url('show_all_member') }}" class="show_all">Show All</a>
+
+      </div>
+
+
+    </section><!-- End Notice Section -->
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
@@ -625,5 +755,7 @@
 
   </main><!-- End #main -->
 
-@extends('layouts.frontend_footer')
+
+  @endsection
+
  

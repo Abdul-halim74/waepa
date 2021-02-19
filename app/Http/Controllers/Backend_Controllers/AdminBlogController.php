@@ -83,7 +83,7 @@ class AdminBlogController extends Controller
 
    			 //echo base_path('public/uploads/blog_image/'.$filename);
 
-   			 Image::make($blog_image_fullname)->resize(1024,768)->save(base_path('public/uploads/blog_image/'.$filename));
+   			 Image::make($blog_image_fullname)->resize(1024,768)->save(base_path('uploads/blog_image/'.$filename));
 
    			 Blog::find($last_inserted_id)->update([
    			 	'blog_image'=>$filename
@@ -192,12 +192,17 @@ return view('backend.blog.bloglist', compact('all_blog_info'));
     	$single_post_info = DB::table('blogs')->find($id);
 
     	$edit_title =  $request->edit_title;
+       $blog_category =  $request->blog_category;
+
+       $blog_category_emp = implode(',', $blog_category);
+
     	$edit_description =  $request->edit_description;
 
     	$user_id = Auth::user()->id;
 
     	DB::table('blogs')->where('id',$id)->update([
     		'blog_heading' => $edit_title,
+        'blog_categories' => $blog_category_emp,
     		'blog_content' => $edit_description,
     		'updated_by'=> $user_id,
     		'updated_at' => date('Y-m-d H:i:s')
@@ -214,11 +219,11 @@ return view('backend.blog.bloglist', compact('all_blog_info'));
 
    			 $filename = $id.".".$blog_image_filename_extension;
 
-   			 unlink(base_path('public/uploads/blog_image/'.$single_post_info->blog_image));
+   			 unlink(base_path('uploads/blog_image/'.$single_post_info->blog_image));
 
    			 //echo base_path('public/uploads/blog_image/'.$filename);
 
-   			 Image::make($blog_image_fullname)->resize(1024,768)->save(base_path('public/uploads/blog_image/'.$filename));
+   			 Image::make($blog_image_fullname)->resize(1024,768)->save(base_path('uploads/blog_image/'.$filename));
 
    			 Blog::find($id)->update([
    			 	'blog_image'=>$filename

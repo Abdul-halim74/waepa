@@ -44,10 +44,31 @@ Route::get('contact', function () {
      return view('frontend.contact');
 });
 
+Route::post('contact_action','Frontend_Controllers\ContactController@insert');
+
 Route::get('single_member_profile', function () {
      return view('frontend.single_member_profile');
 });
 
+
+
+Route::post('registration', 'member\registrationController@member_register')->name('member.register');
+
+Route::get('frontend/login', 'Frontend_Controllers\LoginController@login');
+
+Route::get('waepatalk',function () {
+     return view('frontend.digital_archive.waepatalk');
+});
+
+Route::get('waepagallary',function () {
+     return view('frontend.digital_archive.waepagallary');
+});
+
+Route::get('blog_details/{id}','Frontend_Controllers\FrontendBlogController@blogdetails');
+
+Route::get('notice',function () {
+     return view('frontend.notice');
+});
 
 
 // backend routes
@@ -83,8 +104,7 @@ Route::get('admin/blog/edit/{id}', 'Backend_Controllers\AdminBlogController@sing
 Route::post('admin/update_blog_action', 'Backend_Controllers\AdminBlogController@single_blog_update')->name('admin.singleblogupdate');
 
 
-Route::post('registration', 'member\registrationController@member_register')->name('member.register');
-
+Route::get('admin/member_lists','Backend_Controllers\AdminMemberController@memberlist')->name('admin.member');
 
 Auth::routes();
 

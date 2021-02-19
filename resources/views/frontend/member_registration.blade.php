@@ -1,4 +1,7 @@
-@extends('layouts.frontend_header')
+@extends('layouts.master_frontend')
+  <!-- ======= Hero Section ======= -->
+
+  @section('content')
 
 	<br>
 	<br>
@@ -145,12 +148,12 @@
                  
 
                  <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="yes" id="inlineRadio1" value="option1">
+                <input class="form-check-input" type="radio" name="commit" id="inlineRadio1" value="Yes">
                 <label class="form-check-label" for="inlineRadio1">Yes</label>
               </div>
 
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="no" id="inlineRadio2" value="option2">
+                <input class="form-check-input" type="radio" name="commit" id="inlineRadio2" value="No">
                 <label class="form-check-label" for="inlineRadio2">No</label>
               </div>
 
@@ -175,7 +178,7 @@
                 
             <label for="" class=" col-form-label" style="">Signature : </label>&nbsp;&nbsp;&nbsp;
            
-              <input type="file" name="sinature_img">
+              <input type="file" name="signature_img">
                
             
 
@@ -196,4 +199,21 @@
     </section><!-- End Contact Section -->
 
 
- @extends('layouts.frontend_footer')
+  @endsection
+
+
+  
+@section('js')
+
+
+
+  @if(Session::has('status'))
+
+    <script type="text/javascript">
+      toastr.success("{!!Session::get('status')!!}");
+    </script>
+
+  @endif
+
+
+@endsection

@@ -1,4 +1,7 @@
-@extends('layouts.frontend_header')
+@extends('layouts.master_frontend')
+  <!-- ======= Hero Section ======= -->
+
+  @section('content')
 
 
 
@@ -91,4 +94,4 @@
     </section><!-- End Testimonials Section -->
 
 
-    @extends('layouts.frontend_footer')
+  @endsection
