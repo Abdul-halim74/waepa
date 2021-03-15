@@ -41,14 +41,15 @@
 
             <li class="active"><a href="@if(isset(Auth::user()->name))  {{url('index')}} @else {{url('/')}}  @endif">Home</a></li>
 
-            <li class="drop-down" ><a href="{{url('about/about_us')}}">About Us </a>
+            <li class="drop-down" ><a href="{{url('about/about_us')}}">About WAEPA </a>
 
               <ul>
 
-               
+                  <li><a href="{{url('about/programs_of_waepa')}}">Launching of WAEPA</a></li>
+
                 <li><a href="{{url('about/vission_mission')}}">Vision & Mission</a></li>
-                <li><a href="{{url('about/aims_and_object')}}">Aims And Objective</a></li>
-                <li><a href="{{url('about/programs_of_waepa')}}">Programmes of WAEPA</a></li>
+                <li><a href="{{url('about/aims_and_object')}}">Aims and Objectives</a></li>
+              
                
               </ul>
 
@@ -70,18 +71,18 @@
             <li class="drop-down"><a href="">Members</a>
               <ul>
                
-                  <li><a href="{{url('show_general_member')}}">General Member</a></li>
-                <li><a href="{{url('show_life_member')}}">Life Member</a></li>
-                <li><a href="{{url('show_honourable_member')}}">Honorary Member</a></li>
+                  <li><a href="{{url('show_general_member')}}">General Members</a></li>
+                <li><a href="{{url('show_life_member')}}">Life Members</a></li>
+                <li><a href="{{url('show_honourable_member')}}">Honorary Members</a></li>
               
                
               </ul>
             </li>
 
-             <li class="drop-down"><a href="">EC Members</a>
+             <li class="drop-down"><a href="">EC'S</a>
               <ul>
-                <li><a href="{{url('show_ec_member')}}">Current EC Member</a></li>
-                 <li><a href="{{url('show_former_ec_member')}}">Former EC Member</a></li>
+                <li><a href="{{url('show_ec_member')}}">Current Executive Committee</a></li>
+                 <li><a href="{{url('show_former_ec_member')}}">Former Executive Committees</a></li>
               
                
               </ul>
@@ -91,7 +92,7 @@
 
             </li>
 
-            <li><a href="{{url('waepatalk')}}">WAEPA Talk</a></li>
+            <li><a href="{{url('waepatalk')}}">WAEPA Talks</a></li>
             
            <!--  <li class="drop-down"><a href="">Digital Archive</a>
               <ul>
@@ -146,7 +147,7 @@
 
 
              
-
+              <li><a href="{{url('contact')}}">Contact Us</a></li>
 
             <!--  <li><a href="{{url('frontend_blog')}}">Blog</a></li>
              <li><a href="{{url('notice')}}">Notice</a></li>
@@ -155,7 +156,7 @@
             <li style="@if(isset(Auth::user()->email))
               display: none;
               @endif
-             "><a href="{{url('frontend/login')}}">Login / Sign Up</a></li>
+             "><a href="{{url('frontend/login')}}">Login</a></li>
 
             <li class="drop-down" style="@if(!isset(Auth::user()->email))
 
@@ -177,6 +178,8 @@
               </ul>
 
             </li>
+
+              
 
 
           </ul>
