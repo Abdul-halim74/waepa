@@ -1,6 +1,18 @@
 @extends('layouts.master_frontend')
   <!-- ======= Hero Section ======= -->
 
+@section('css')
+
+<style type="text/css">
+  
+    button.control {
+          margin-top: 10px;
+        }
+
+
+</style>
+@endsection
+
   @section('content')
 
 
@@ -8,95 +20,115 @@
 
 <br>
 <br>
- <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container">
-
-        <div class="row">
-
-         
-          <div class="col-lg-12">
-
-          	<h2 class="text-center">EC Members</h2>
-            <br>
-            <div class="row">
 
 
-              <div class="col-lg-4">
-                <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="pic"><a href="{{url('single_member_profile')}}"><img src="{{ asset('frontend_assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></a></div>
-                  <div class="member-info">
-                    <a href="{{url('single_member_profile')}}"><h4>Walter White</h4></a>
-                    <span>Chief Executive Officer</span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 mt-4 mt-lg-0">
-                <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-2.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Sarah Jhonson</h4>
-                    <span>Product Manager</span>
-                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 mt-4 mt-lg-0">
-                <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>William Anderson</h4>
-                    <span>CTO</span>
-                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 mt-4">
-                <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-4.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
-                    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
+  <section id="team" class="team">
+     
+    <div class="container"> <!--section heading-->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-header text-center">
+          <h2><span  style="color: #ff284f">EC</span> Member </h2>
           </div>
         </div>
-
       </div>
-    </section><!-- End Team Section -->
+   
+    
+      <div class="mixit-wrapper text-center"> <!--start mixit-wrapper--> 
+        <div class="controls">
 
+            <button type="button" class="control" data-filter="all">ALL</button>
+
+          <?php
+            $ec_setting_data = DB::table('ec_setting')->orderBy('id','DESC')->limit(10)->get();
+
+            foreach ($ec_setting_data as $key => $value) {
+             
+          ?>
+
+        
+
+          <button type="button" class="control"  onclick="my_func(id);" data-filter=".{{$value->nth_ec}}" id="{{$value->title}}">{{$value->nth_ec}}</button>
+         
+          
+
+          <?php
+
+            }
+          ?>
+         
+
+          <br>
+          <br>
+
+        </div>
+
+        <h3 class="ec_committe_waepa"></h3>
+
+        <br>
+
+        <div class="container-mixit" data-ref="mixitup-container">
+
+          <div class="row">
+            
+                @foreach($member_register_data as $single_member_data)
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="item {{$single_member_data->ec_setting_number}}" data-ref="mixitup-target">
+                      <div class="member" data-aos="zoom-in" data-aos-delay="">
+                            <div class="pic">
+                              <a href="{{url('single_member_profile')}}/{{$single_member_data->member_user_id}}">
+
+                                <img src="{{ asset('uploads/member_image/member_face') }}/{{$single_member_data->user_img}}" class="img-fluid" alt="">
+
+                              </a>
+                              </div>
+
+                              <div class="member-info">
+                               <a href="{{url('single_member_profile')}}/{{$single_member_data->member_user_id}}"> <h4>{{$single_member_data->name}}</h4> </a>
+                              <span>{{$single_member_data->designation_from_waepa}} </span>
+                              <p>{{$single_member_data->position}} </p>
+
+                               <p><b>Phone : </b><a href="tel:{{$single_member_data->mobile}}">{{$single_member_data->mobile}}</a></p>
+                               <p><b>Email : </b> {{$single_member_data->email}}</p>
+                          </div>
+
+                          </div>
+                    </div>
+
+                </div>
+
+                @endforeach
+
+
+               
+         
+          </div>
+        </div>
+      </div>  <!--end mixit-wrapper--> 
+
+       </div>  <!--section heading-->
+  </section>  <!--end portfolio section-->
+
+
+
+
+  @endsection
+
+
+
+  @section('js')
+
+
+  <script type="text/javascript" src="{{ asset('frontend_assets/js/mixitup.min.js') }}"></script>
+
+
+  <script type="text/javascript">
+    function my_func(id){
+      // alert(id);
+
+
+       $(".ec_committe_waepa").html(id);
+    }
+  </script>
 
   @endsection

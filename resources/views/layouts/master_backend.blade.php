@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="{{ asset('frontend_assets/img/favicon.png') }}" rel="icon">
   
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Dashboard</title>
 
   @include('layouts.backend_top_link')
 

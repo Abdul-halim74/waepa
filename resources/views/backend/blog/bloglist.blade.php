@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blog List</h1>
+            <h1>Publications List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Admin</a></li>
-              <li class="breadcrumb-item active">Blog List</li>
+              <li class="breadcrumb-item active">Publications List</li>
             </ol>
           </div>
         </div>
@@ -34,7 +34,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Blog List</h3>
+                <h3 class="card-title">Publications List</h3>
               </div>
 
 
@@ -45,10 +45,10 @@
                   <tr>
                     <th>Sl</th>
                     <th>Title</th>
-                    <th>Blog Categories</th>
+                    <th>Publications Categories</th>
 
                     <th>Description</th>
-                    <th>Blog Image</th>
+                    <th>Publications Image</th>
                    
                     <th>Action</th>
                   </tr>
@@ -90,7 +90,7 @@
 
                     </td>
 
-                    <td>{{ \Illuminate\Support\Str::limit($single_blog->blog_content, 150, $end='...') }}</td>
+                    <td>{!! \Illuminate\Support\Str::limit($single_blog->blog_content, 150, $end='...') !!}</td>
                     <td> <img src="{{asset('uploads/blog_image')}}/{{$single_blog->blog_image}}" alt="not found" height="100" width="100"></td>
 
                     <td class="project-actions text-right">
@@ -125,9 +125,9 @@
                   <tr>
                     <th>Sl</th>
                     <th>Title</th>
-                    <th>Blog Categories</th>
+                    <th>Publications Categories</th>
                     <th>Description</th>
-                    <th>Blog Image</th>
+                    <th>Publications Image</th>
                    
                     <th>Action</th>
                   </tr>

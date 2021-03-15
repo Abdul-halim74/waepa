@@ -7,6 +7,27 @@
  <br>
  <br>
  <br>
+ <br>
+ <br>
+
+
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+           
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Archive</a></li>
+              <li class="breadcrumb-item">Publications</li>
+              <li class="breadcrumb-item active">Publications Details</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+
+
  <!-- ======= Blog Section ======= -->
     <section class="blog" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
       <div class="container">
@@ -32,12 +53,11 @@
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">{{$blog_details->username}}</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$blog_details->created_at}}</time></a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="blog-single.html">12
-                      Comments</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="">{{$blog_details->username}}</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href=""><time datetime="2020-01-01">{{$blog_details->created_at}}</time></a></li>
+                  
 
-                   <li class="d-flex align-items-center"><i class="fa fa-list-alt" aria-hidden="true"></i> <a href="blog-single.html">Categories : 
+                   <li class="d-flex align-items-center"><i class="fa fa-list-alt" aria-hidden="true"></i> <a href="">Categories : 
 
 
                     <?php 
@@ -71,7 +91,7 @@
                <div class="entry-content">
 
                 <p>
-                  {{ $blog_details->blog_content }}
+                  {!! $blog_details->blog_content !!}
                 </p>
                
 
@@ -88,47 +108,48 @@
               
             
               <!-- /.card-body -->
+           
+
               <div class="card-footer card-comments">
-               
+              
+
+
+                @foreach($single_blog_comment as $comment_user)
+
                 <div class="card-comment">
                   <!-- User image -->
-                  <img class="img-circle img-sm" src="{{asset('frontend_assets/img/comments_img/user3-128x128.jpg')}}" alt="User Image">
+                  <img class="img-circle img-sm" src="{{asset('uploads/member_image/member_face')}}/{{$comment_user->user_img}}" alt="User Image">
 
                   <div class="comment-text">
                     <span class="username">
-                      Maria Gonzales
-                      <span class="text-muted float-right">8:03 PM Today</span>
+                      {{$comment_user->user_name}}
+                      <span class="text-muted float-right">   {{$comment_user->entry_date}}</span>
                     </span><!-- /.username -->
-                    It is a long established fact that a reader will be distracted
-                    by the readable content of a page when looking at its layout.
+                   {{$comment_user->user_comment}}
                   </div>
                   <!-- /.comment-text -->
                 </div>
-                <!-- /.card-comment -->
-                <div class="card-comment">
-                  <!-- User image -->
-                  <img class="img-circle img-sm" src="{{asset('frontend_assets/img/comments_img/user5-128x128.jpg')}}" alt="User Image">
 
-                  <div class="comment-text">
-                    <span class="username">
-                      Nora Havisham
-                      <span class="text-muted float-right">8:03 PM Today</span>
-                    </span><!-- /.username -->
-                    The point of using Lorem Ipsum is that it hrs a morer-less
-                    normal distribution of letters, as opposed to using
-                    'Content here, content here', making it look like readable English.
-                  </div>
-                  <!-- /.comment-text -->
-                </div>
-                <!-- /.card-comment -->
+                @endforeach
+              
+              <dev class="col-md-12 d-flex justify-content-md-center justify-content-center">
+                 {{$single_blog_comment->links() }}
+              </dev>
+                 
+
               </div>
               <!-- /.card-footer -->
               <div class="card-footer">
-                <form action="#" method="post">
-                  <img class="img-fluid img-circle img-sm" src="{{asset('frontend_assets/img/comments_img/user4-128x128.jpg')}}" alt="Alt Text">
+                <form action="{{url('user_frontend_comment_submit')}}" method="post">
+                  @csrf
+
+                  <input type="hidden" name="hidden_id" value="{{$blog_details->id}}">
+
+                  <img class="img-fluid img-circle img-sm" src="{{asset('uploads/member_image/member_face')}}/{{$login_user_data->user_img}}" alt="Alt Text">
                   <!-- .img-push is used to add margin to elements next to floating images -->
+
                   <div class="img-push">
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" name="comments"></textarea>
                   </div>
 
                   <br>
@@ -158,3 +179,17 @@
   @endsection
 
 
+  
+@section('js')
+
+
+  @if(Session::has('status'))
+
+    <script type="text/javascript">
+      toastr.success("{!!Session::get('status')!!}");
+    </script>
+
+  @endif
+
+
+@endsection

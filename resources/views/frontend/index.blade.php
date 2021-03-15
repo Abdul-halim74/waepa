@@ -3,6 +3,14 @@
   <!-- ======= Hero Section ======= -->
 @section('css')
 
+
+
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+
+<link rel="stylesheet" href="{{asset('frontend_assets/css/default.css')}}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{asset('frontend_assets/css/nivo-slider.css')}}" type="text/css" media="screen" />
+
 <style type="text/css">
   .carousel_btn{
 
@@ -26,6 +34,11 @@
     color: #fff !important;
     border: 1px solid #fff;
   }
+
+
+ 
+
+
 </style>
 
 @endsection
@@ -33,427 +46,120 @@
 
   @section('content')
 
-  <section id="" class="" style="padding-top: 70px !important;">
-    <div class="" data-aos="fade-in" data-aos-delay="200">
-     
-
-          <div id="carouselExampleIndicators" class="carousel slide">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-             
-            </ol>
-
-            <div class="carousel-inner " style="background: black;">
-
-             
-
-              <!-- first slide -->
-              <div class="carousel-item active" style="background-image:url( {{ asset('frontend_assets/img/slider_img/Slide1.jpg') }} ); background-repeat: no-repeat;width: 100%;">
-
-                <div class="carousel-caption d-md-block">
-                   <h3 data-animation="animated bounceInLeft">
-                    This is the caption for slide 1
-                  </h3>
-
-                  <h3 data-animation="animated bounceInUp">
-                    This is the caption for slide 1
-                  </h3>
-                   <a class="carousel_btn" href="{{url('member_registration')}}">Now a Member</a>
-                </div>
-              </div>
-
-               <!-- second slide -->
-              <div class="carousel-item  " style="background-image:url( {{ asset('frontend_assets/img/slider_img/Slide2.jpg') }} ); background-repeat: no-repeat;width: 100%;">
-                <div class="carousel-caption d-md-block">
-                  <h3 data-animation="animated bounceInLeft">
-                    This is the caption for slide 2
-                  </h3>
-                  <h3 data-animation="animated bounceInRight">
-                    This is the caption for slide 2
-                  </h3>
-                  <a class="carousel_btn" href="{{url('member_registration')}}">Now a Member</a>
-                </div>
-              </div>
 
 
-               <!-- third slide -->
-              <div class="carousel-item  " style="background-image:url( {{ asset('frontend_assets/img/slider_img/Slide3.jpg') }} ); background-repeat: no-repeat;width: 100%;">
-                <div class="carousel-caption d-md-block">
-                  <h3 data-animation="animated bounceInLeft">
-                    This is the caption for slide 3
-                  </h3>
-                  <h3 data-animation="animated bounceInRight">
-                    This is the caption for slide 3
-                  </h3>
-                  <a class="carousel_btn" href="{{url('member_registration')}}">Now a Member</a>
-                </div>
-              </div>
-
-             
 
 
-            </div>
+<div id="wrapper" style="margin-top: 82px;">
+    <div class="slider-wrapper theme-default">
 
-            <!-- controls -->
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-        </div>
+      <div id="slider" class="nivoSlider"> 
+
+         @php
+                $sliders = DB::table('slider')->where('status', 1)->get();
+
+
+             @endphp
+
+           @foreach($sliders as $key => $single_slider)
+
+            <img src="{{ asset($single_slider->img) }}" data-thumb="{{ asset($single_slider->img) }}" alt="" title="{{$single_slider->title}}" data-transition="slideInLeft"/> 
+
+
+          @endforeach  
+        
+      </div>
 
     </div>
-  </section><!-- End Hero -->
+</div>
+
 
   <main id="main">
 
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-            <img src="{{ asset('frontend_assets/img/clients/client-1.png') }}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="200">
-            <img src="{{ asset('frontend_assets/img/clients/client-2.png') }}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="300">
-            <img src="{{ asset('frontend_assets/img/clients/client-3.png') }}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="400">
-            <img src="{{ asset('frontend_assets/img/clients/client-4.png') }}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="500">
-            <img src="{{ asset('frontend_assets/img/clients/client-5.png') }}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">
-            <img src="{{ asset('frontend_assets/img/clients/client-6.png') }}" class="img-fluid" alt="">
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Clients Section -->
+ 
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about" style="padding: 0px 0px !important;">
       <div class="container">
 
         <div class="row content">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-            <h2>Eum ipsam laborum deleniti velitena</h2>
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+
+        <div class="col-lg-5">
+            <div class="section-title" data-aos="fade-right">
+              <h2 style="font-size: 32px;">About Us</h2>
+
+              <p><b>WAEPA BANGLAESH </b> – THE VOICE OF WOMEN TECHNICAL
+PROFESSIONALS</p>
+            </div>
+
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+
+          <div class="col-lg-7 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+
+
+            <h3><b style="color: #ff284f">V</b>ision</h3>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+             To succeed as the Apex Body and Voice of Women Technical Professionals
+of Bangladesh.
+
             </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</li>
-            </ul>
+
+             <h3><b style="color: #ff284f">M</b>ission</h3>
+            <p>
+              
+             To improve, promote and empower the professional arena of Women
+Architects, Engineers and Planners as well as to ensure emancipation of
+career women in nation building and networking with national and
+international programmes and projects.
+
+
+            </p>
+
+           
             <p class="font-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+             
             </p>
+
+
           </div>
+
+          <div class="text-center" style="margin: 0 auto;">
+           
+             <a class="carousel_btn" href="{{url('about/about_us')}}">Read More </a>
+              <br>
+           <br>
+          
+           </div>
+
+          
+
         </div>
 
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
+   <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts" style="padding: 4px 0;">
       
-        <h1 class="text-center">Advertisement</h1>
-        
+      @php
+       $advertisment = DB::table('advertisement')->select('title', 'img')->where('status', '1')->orderBy('id', 'desc')->first();
+      @endphp
+      @if($advertisment !='')
+
+        <img src="{{asset( $advertisment->img)}}" alt="Not Found" width="100%" height="300px">
+       
+      @else
+
+      @endif
 
     </section><!-- End Counts Section -->
 
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container">
 
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
-            <div class="content">
-              <h3>Why Choose Bethany for your company website?</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
-          </div>
-        </div>
 
-      </div>
-    </section><!-- End Why Us Section -->
 
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container">
-
-        <div class="text-center" data-aos="zoom-in">
-          <h3>Call To Action</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a class="cta-btn" href="#">Call To Action</a>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="section-title" data-aos="fade-right">
-              <h2>Services</h2>
-              <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-            </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                  <h4><a href="">Lorem Ipsum</a></h4>
-                  <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                </div>
-              </div>
-
-              <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="icon"><i class="bx bx-file"></i></div>
-                  <h4><a href="">Sed ut perspiciatis</a></h4>
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                </div>
-              </div>
-
-              <div class="col-md-6 d-flex align-items-stretch mt-4">
-                <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="icon"><i class="bx bx-tachometer"></i></div>
-                  <h4><a href="">Magni Dolores</a></h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                </div>
-              </div>
-
-              <div class="col-md-6 d-flex align-items-stretch mt-4">
-                <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="icon"><i class="bx bx-world"></i></div>
-                  <h4><a href="">Nemo Enim</a></h4>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-left">
-          <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="{{ asset('frontend_assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="{{ asset('frontend_assets/img/portfolio/portfolio-1.jpg') }}" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="{{ asset('frontend_assets/img/portfolio/portfolio-2.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="{{ asset('frontend_assets/img/portfolio/portfolio-2.jpg') }}" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="{{ asset('frontend_assets/img/portfolio/portfolio-3.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="{{ asset('frontend_assets/img/portfolio/portfolio-3.jpg') }}" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="{{ asset('frontend_assets/img/portfolio/portfolio-4.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="{{ asset('frontend_assets/img/portfolio/portfolio-4.jpg') }}" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="{{ asset('frontend_assets/img/portfolio/portfolio-5.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="{{ asset('frontend_assets/img/portfolio/portfolio-5.jpg') }}" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="{{ asset('frontend_assets/img/portfolio/portfolio-6.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="{{ asset('frontend_assets/img/portfolio/portfolio-6.jpg') }}" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="{{ asset('frontend_assets/img/portfolio/portfolio-7.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="{{ asset('frontend_assets/img/portfolio/portfolio-7.jpg') }}" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="{{ asset('frontend_assets/img/portfolio/portfolio-8.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="{{ asset('frontend_assets/img/portfolio/portfolio-8.jpg') }} " data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="{{ asset('frontend_assets/img/portfolio/portfolio-9.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="{{ asset('frontend_assets/img/portfolio/portfolio-9.jpg') }}" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
+   <!--  <section id="testimonials" class="testimonials section-bg">
       <div class="container">
 
         <div class="row">
@@ -533,7 +239,7 @@
 
     </div>
 
-    </section><!-- End Testimonials Section -->
+    </section> --><!-- End Testimonials Section -->
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">
@@ -542,80 +248,41 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="section-title" data-aos="fade-right">
-              <h2>Team</h2>
+              <h2>EC Member</h2>
               <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
             </div>
           </div>
           <div class="col-lg-8">
             <div class="row">
 
-              <div class="col-lg-6">
-                <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             <?php   $data_aos_delay=100;   ?>
 
-              <div class="col-lg-6 mt-4 mt-lg-0">
-                <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-2.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Sarah Jhonson</h4>
-                    <span>Product Manager</span>
-                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+               @foreach($member_register_data as $single_member_data)
 
-              <div class="col-lg-6 mt-4">
-                <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>William Anderson</h4>
-                    <span>CTO</span>
-                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                 <?php  $data_aos_delay= $data_aos_delay + 100;?>
 
-              <div class="col-lg-6 mt-4">
-                <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-4.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
-                    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                <div class="col-lg-6 mt-4 mt-lg-0 ">
+                  <div class="member" data-aos="zoom-in" data-aos-delay="<?php echo $data_aos_delay; ?>">
+                    <div class="pic">
+                      <a href="{{url('single_member_profile')}}/{{$single_member_data->id}}">
+
+                        <img src="{{ asset('uploads/member_image/member_face') }}/{{$single_member_data->user_img}}" class="img-fluid" alt="">
+
+                      </a>
+                      </div>
+                    <div class="member-info">
+                       <a href="{{url('single_member_profile')}}/{{$single_member_data->id}}"> <h4>{{$single_member_data->name}}</h4> </a>
+                      <span>{{$single_member_data->designation_from_waepa}} </span>
+                      <p>{{$single_member_data->position}}</p>
+
+                      <p><b>Phone : </b><a href="tel:{{$single_member_data->mobile}}">{{$single_member_data->mobile}}</a></p>
+                     <p><b>Email : </b> {{$single_member_data->email}}</p>
+
                     </div>
                   </div>
-                </div>
               </div>
+                @endforeach
+             
 
             </div>
 
@@ -627,49 +294,38 @@
       <br>
        <div class="text-center custom_margin_top">
       
-          <a href="{{url('show_all_member') }}" class="show_all">Show All</a>
+          <a href="{{url('show_ec_member') }}" class="show_all">Show All</a>
 
       </div>
 
 
     </section><!-- End Team Section -->
 
-
-      <!-- ======= Notice Section ======= -->
+    <!-- ======= Notice Section ======= -->
     <section id="notice" class="notice section-bg">
       <div class="container">
 
         <div class="row">
           <div class="col-lg-4">
             <div class="section-title" data-aos="fade-right">
-              <h2>Notices</h2>
-              <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+              <h2>Job Circular</h2>
+              <p>WAEPA Job Circular</p>
             </div>
           </div>
           <div class="col-lg-8">
           
+          @php
+          $notices =DB::select(DB::raw("SELECT * FROM `notice` where status=1 ORDER BY id DESC limit 10"));
+          @endphp
 
-              <a href="">Notice 1</a> <br>
+          @foreach($notices  as $notice)
+
+
+              <a target="_blank" href="{{ url('frontend_notice_details', $notice->id)}}">{{$notice->title}}</a> <br>
               <hr>
-              <a href="">Notice 2</a>
+             
 
-               <hr>
-              <a href="">Notice 3</a>
-
-               <hr>
-              <a href="">Notice 4</a>
-
-               <hr>
-              <a href="">Notice 5</a>
-
-               <hr>
-              <a href="">Notice 6</a>
-
-               <hr>
-              <a href="">Notice 7</a>
-
-
-          
+   @endforeach
 
           </div>
         </div>
@@ -679,7 +335,7 @@
       <br>
        <div class="text-center custom_margin_top">
       
-          <a href="{{url('show_all_member') }}" class="show_all">Show All</a>
+          <a href="{{url('frontend/notice') }}" class="show_all">Show All</a>
 
       </div>
 
@@ -692,61 +348,125 @@
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
             <div class="section-title">
-              <h2>Contact</h2>
-              <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+              <h2>Contact Us</h2>
+
+             
+                <div class="info">
+
+                 <h3><b  style="color: #ff284f">C</b>ontact <b style="color: #ff284f">P</b>erson 1</h3> <hr>
+
+               <b>Name : </b> <span>  Ar. Selina Afroza </span> <br>
+
+     <b>Designation : </b>            
+ <ul>
+   <li>President WAEPA</li>
+   <hr>
+   <li>President WAEPA
+Head of Architecture Department
+Shanto-Mariam University of Creative Technology
+(SMUCT), Uttara, Dhaka.</li>
+ <hr>
+
+<li>Chairman at Archetype Limited, Dhaka.</li>
+<hr>
+
+<li>Former Additional Chief Architect at Department of Architecture,
+Ministry of Housing and Public Works, Government of people's
+Republic of Bangladesh, Dhaka.</li>
+
+
+
+ </ul>
+
+<b>Contact 1: </b> <span>(T): +8802 8316504</span> <br>
+
+<b>Contact 2: </b> <span>(M): +880 1711677741</span><br>
+<b>Email : </b> <span>selinaafroza@yahoo.com</span><br>
+
+
+
+                </div>
+
+
+                <br>
+                <br>
+
+                <div class="info">
+                 <h3><b  style="color: #ff284f">C</b>ontact <b style="color: #ff284f">P</b>erson 2</h3> <hr>
+
+<b>Name : </b> <span> Ar. Sultana Zakia Rahman</span>
+ <b>Designation : </b>    
+ <ul>
+   <li>General Secretary
+Assistant Professor,
+State University of Bangladesh,
+House-3/1, Apt.-E2, Road-10, Dhanmondi, Dhaka.</li>
+
+ </ul>
+
+<b>Contact : </b> <span> (M): +880 1711686082 </span> <br>
+
+<b>Email : </b> <span> reetarahman07@gmail.com </span>
+
+                </div>
+           
+             
+            
+
+
             </div>
           </div>
 
           <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-            <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        
+
+            <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3652.1615970198673!2d90.38051591498117!3d23.741616184593795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRoad%20no%204%2C%20House%20no.%2011%2C%20Dhanmondi%20R%2FA%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1613735595905!5m2!1sen!2sbd" frameborder="0" allowfullscreen></iframe>
+
             <div class="info mt-4">
               <i class="icofont-google-map"></i>
-              <h4>Location:</h4>
-              <p>A108 Adam Street, New York, NY 535022</p>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mt-4">
-                <div class="info">
-                  <i class="icofont-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>info@example.com</p>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="info w-100 mt-4">
-                  <i class="icofont-phone"></i>
-                  <h4>Call:</h4>
-                  <p>+1 5589 55488 55s</p>
-                </div>
-              </div>
+              <h4>Location: WAEPA Office</h4>
+              <p>Road no 4, House no. 11, Dhanmondi R/A, Dhaka.</p>
             </div>
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+
+             <form action="{{url('contact_action')}}" method="post"  >
+              @csrf
+
+              
+              <br>
               <div class="form-row">
+              
+
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
+
+
+                  <label>Name : </label>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  required="" />
+                
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
+                   <label>Email : </label>
+
+                  <input type="email" class="form-control" required="" name="email" id="email" placeholder="Your Email" />
+                 
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
+                  <label>Subject : </label>
+
+                <input type="text" class="form-control" required="" name="subject" id="subject" placeholder="Subject"  />
+               
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validate"></div>
+                 <label>Message : </label>
+
+                <textarea class="form-control" name="message" rows="5" required="" placeholder="Message"></textarea>
+               
               </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+            
+              <div class="text-center"><button type="submit" name="submit" class="submit_btn">Send Message</button></div>
             </form>
+
           </div>
         </div>
 
@@ -758,4 +478,41 @@
 
   @endsection
 
- 
+  
+@section('js')
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="{{asset('frontend_assets/js/jquery.nivo.slider.js')}}"></script>
+
+<script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script> 
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  @if(Session::has('status'))
+
+    <script type="text/javascript">
+      toastr.success("{!!Session::get('status')!!}");
+    </script>
+
+  @endif
+
+
+@endsection

@@ -19,75 +19,35 @@
           	<h2 class="text-center">Life Members</h2> <br>
             <div class="row">
 
+          <?php   $data_aos_delay=100;   ?>
 
-              <div class="col-lg-4">
-                <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+              @foreach($member_register_data as $single_member_data)
+
+                <?php  $data_aos_delay= $data_aos_delay + 100;?>
+
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="member" data-aos="zoom-in" data-aos-delay="<?php echo $data_aos_delay; ?>">
+                  <div class="pic">
+                    <a href="{{url('single_member_profile')}}/{{$single_member_data->id}}">
+
+                      <img src="{{ asset('uploads/member_image/member_face') }}/{{$single_member_data->user_img}}" class="img-fluid" alt="">
+
+                    </a>
                     </div>
+                  <div class="member-info">
+                     <a href="{{url('single_member_profile')}}/{{$single_member_data->id}}"> <h4>{{$single_member_data->name}}</h4> </a>
+                    <span>{{$single_member_data->designation_from_waepa}} </span>
+                    <p>{{$single_member_data->position}} </p>
+
+                   <p><b>Phone : </b><a href="tel:{{$single_member_data->mobile}}">{{$single_member_data->mobile}}</a></p>
+                   <p><b>Email : </b> {{$single_member_data->email}}</p>
                   </div>
                 </div>
               </div>
 
-              <div class="col-lg-4 mt-4 mt-lg-0">
-                <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-2.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Sarah Jhonson</h4>
-                    <span>Product Manager</span>
-                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              @endforeach
 
-              <div class="col-lg-4 mt-4 mt-lg-0">
-                <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>William Anderson</h4>
-                    <span>CTO</span>
-                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 mt-4">
-                <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="pic"><img src="{{ asset('frontend_assets/img/team/team-4.jpg') }}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
-                    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+             
             </div>
 
           </div>

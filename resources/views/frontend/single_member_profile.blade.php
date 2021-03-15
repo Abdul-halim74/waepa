@@ -26,13 +26,15 @@
               <div class="card-body box-profile">
                 <div class="text-center">
 
-                  <img class="profile-user-img img-fluid img-circle" src="{{url('backend_assets/dist/img/user4-128x128.jpg')}}" alt="User profile picture">
+                  <img class="profile-user-img img-fluid img-circle" src="{{ asset('uploads/member_image/member_face') }}/{{$single_member_data->user_img}}" alt="User profile picture">
 
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center">{{$single_member_data->name}}</h3>
 
-                <p class="text-muted text-center">Software Engineer</p>
+                <p class="text-muted text-center">{{$single_member_data->designation_from_waepa}}</p>
+
+               
 
                
               </div>
@@ -50,10 +52,21 @@
                   <li class="nav-item"><a class="nav-link active" href="#personal_info" data-toggle="tab">Personal Info</a></li>
 
                   <li class="nav-item"><a class="nav-link" href="#academic" data-toggle="tab">Academic</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#title_of_thesis" data-toggle="tab">Title of Thesis</a></li>
 
-                  <li class="nav-item"><a class="nav-link" href="#professional" data-toggle="tab">Professional</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#experiences" data-toggle="tab">Experiences</a></li>
+
+                   <li class="nav-item"><a class="nav-link" href="#publication" data-toggle="tab">Publication/Research</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="#Seminar" data-toggle="tab">Seminar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Lecture" data-toggle="tab">Lecture</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Workshop" data-toggle="tab">Workshop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Training" data-toggle="tab">Training</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Professional_Membership" data-toggle="tab">Professional Membership</a></li>
+
+                <!--   <li class="nav-item"><a class="nav-link" href="#professional" data-toggle="tab">Professional</a></li> -->
                   
-                  <li class="nav-item"><a class="nav-link" href="#achievement" data-toggle="tab">Achievement</a></li>
+                <!--   <li class="nav-item"><a class="nav-link" href="#achievement" data-toggle="tab">Achievement</a></li> -->
 
                  
                   <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab" style="display: none;">Edit</a></li>
@@ -68,34 +81,56 @@
                       <strong><i class="fas fa-info-circle "></i> Name </strong>
 
                         <p class="text-muted">
-                         Abdul Halim
+                        {{$single_member_data->name}}
                         </p>
 
                         <hr>
 
                         <strong><i class="fas fa-envelope-square"></i> Email</strong>
 
-                        <p class="text-muted">halimkhanfeni7@gmail.com</p>
+                        <p class="text-muted"> {{$single_member_data->email}}</p>
 
                         <hr>
 
                         <strong><i class="fas fa-user-tag"></i> Designation</strong>
-                         <p class="text-muted">Sowtare Engineer at Venture Solutions Ltd</p>
+                         <p class="text-muted">{{$single_member_data->designation_from_waepa}}</p>
 
 
-                        <p class="text-muted">
+                       <!--  <p class="text-muted">
                           <span class="tag tag-danger">UI Design</span>
                           <span class="tag tag-success">Coding</span>
                           <span class="tag tag-info">Javascript</span>
                           <span class="tag tag-warning">PHP</span>
                           <span class="tag tag-primary">Node.js</span>
-                        </p>
+                        </p> -->
 
                         <hr>
 
-                        <strong><i class="far fa-file-alt mr-1"></i> Contact Number</strong>
+                        <strong><i class="fas fa-phone-square-alt"></i> Contact Number</strong>
 
-                        <p class="text-muted">01854-109774</p>
+                        <p class="text-muted">{{$single_member_data->mobile}}</p>
+
+
+                        <hr>
+
+                        <strong><i class="fas fa-calendar-week"></i> Date of Birth </strong>
+
+                        <p class="text-muted">{{$single_member_data->date}}</p>
+
+                        <hr>
+
+                        <strong><i class="far fa-file-alt mr-1"></i> Address </strong>
+
+                        <p class="text-muted">{{$single_member_data->mailing_address}}</p>
+
+                        <hr>
+
+                         <strong><i class="far fa-file-alt mr-1"></i> Nationality: </strong>
+                          <p class="text-muted">Bangladeshi</p>
+
+                          <hr>
+
+                         
 
                   </div>
 
@@ -106,26 +141,26 @@
                       <strong><i class="fas fa-info-circle "></i> Exam Title </strong>
 
                         <p class="text-muted">
-                         SSC (Secondary School Certificate)
+                         {{$single_member_data->academic_1_xm_title}}
                         </p>
 
                         <hr>
-
+<!-- 
                         <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
 
                         <p class="text-muted">Science</p>
 
-                        <hr>
+                        <hr> -->
 
                         <strong><i class="fas fa-university"></i> Institute Name</strong>
-                         <p class="text-muted">Dhaka City School & College, Dhaka</p>
+                         <p class="text-muted"> {{$single_member_data->academic_1_ins_name}} </p>
 
 
                        
 
                         <hr>
 
-                        <strong><i class="fas fa-poll-h"></i> Result Type</strong>
+                        <!-- <strong><i class="fas fa-poll-h"></i> Result Type</strong>
 
                         <p class="text-muted">Grade </p>
 
@@ -135,11 +170,11 @@
 
                         <p class="text-muted">5 Out of (5)</p>
 
-                        <hr>
+                        <hr> -->
 
                         <strong><i class="fas fa-calendar-week"></i>Year of Passing </strong>
 
-                        <p class="text-muted">2014</p>
+                        <p class="text-muted">{{$single_member_data->academic_1_year_of_passing}} </p>
 
                        
                           <hr>
@@ -148,40 +183,40 @@
                       <strong><i class="fas fa-info-circle "></i> Exam Title </strong>
 
                         <p class="text-muted">
-                         HSC / Diploma
+                         {{$single_member_data->academic_2_xm_title}}
                         </p>
 
                         <hr>
 
-                        <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
+                        <!-- <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
 
                         <p class="text-muted">Science</p>
 
-                        <hr>
+                        <hr> -->
 
                         <strong><i class="fas fa-university"></i> Institute Name</strong>
-                         <p class="text-muted">Dhaka City School & College, Dhaka</p>
+                         <p class="text-muted">{{$single_member_data->academic_2_ins_name}}</p>
 
 
                        
 
                         <hr>
 
-                        <strong><i class="fas fa-poll-h"></i> Result Type</strong>
+                       <!--  <strong><i class="fas fa-poll-h"></i> Result Type</strong>
 
                         <p class="text-muted">Grade </p>
 
-                        <hr>
+                        <hr> -->
 
-                        <strong><i class="fas fa-poll-h"></i> CGPA / GPA</strong>
+                      <!--   <strong><i class="fas fa-poll-h"></i> CGPA / GPA</strong>
 
                         <p class="text-muted">4.50 Out of (5)</p>
 
-                        <hr>
+                        <hr> -->
 
                         <strong><i class="fas fa-calendar-week"></i>Year of Passing </strong>
 
-                        <p class="text-muted">2016</p>
+                        <p class="text-muted">{{$single_member_data->academic_2_year_of_passing}}</p>
 
                        
                           <hr>
@@ -191,26 +226,26 @@
                       <strong><i class="fas fa-info-circle "></i> Exam Title </strong>
 
                         <p class="text-muted">
-                         BSC (Bachelor of Science)
+                         {{$single_member_data->academic_3_xm_title}}
                         </p>
 
                         <hr>
 
-                        <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
+                       <!--  <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
 
                         <p class="text-muted">CSE</p>
 
-                        <hr>
+                        <hr> -->
 
                         <strong><i class="fas fa-university"></i> Institute Name</strong>
-                         <p class="text-muted">Northern University Bangladesh</p>
+                         <p class="text-muted">{{$single_member_data->academic_3_ins_name}}</p>
 
 
                        
 
                         <hr>
 
-                        <strong><i class="fas fa-poll-h"></i> Result Type</strong>
+                       <!--  <strong><i class="fas fa-poll-h"></i> Result Type</strong>
 
                         <p class="text-muted">Grade </p>
 
@@ -220,100 +255,199 @@
 
                         <p class="text-muted">3.50 Out of (4)</p>
 
-                        <hr>
+                        <hr> -->
 
                         <strong><i class="fas fa-calendar-week"></i>Year of Passing </strong>
 
-                        <p class="text-muted">2020</p>
-
-                       
-                          <hr>
-
-
-                  </div>
-
-
-
-                    <div class=" tab-pane" id="professional">
-
-                     <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Profession 1</h4>
-                      <strong><i class="fas fa-info-circle "></i> Company Name </strong>
-
-                        <p class="text-muted">
-                        Venture solutions Ltd
-                        </p>
-
-                        <hr>
-
-                        <strong><i class="fas fa-object-group"></i>  Company Type </strong>
-
-                        <p class="text-muted"> IT Firm</p>
-
-                        <hr>
-
-                        <strong><i class="fas fa-university"></i> Designation </strong>
-                         <p class="text-muted"> Junior software Engineer</p>
-
-
-                       
-
-                        <hr>
-
-                        <strong><i class="fas fa-poll-h"></i> Department </strong>
-
-                        <p class="text-muted"> Software Development </p>
-
-                        <hr>
-
-                        <strong><i class="fas fa-poll-h"></i> Responsibilities </strong>
-
-                        <p class="text-muted"> Existing Software live support and create new software .</p>
-
-                        <hr>
-
-                        <strong><i class="fa fa-map-marker" aria-hidden="true"></i> Company Location</strong>
-
-                        <p class="text-muted"> Motijheel, Arambag,  Dhaka</p>
-
-                       
-                          <hr>
-
-                           <strong><i class="fas fa-calendar-week"></i> Employment Period</strong>
-
-                        <p class="text-muted">  12/1/2019 To Continue</p>
+                        <p class="text-muted">{{$single_member_data->academic_3_year_of_passing}} </p>
 
                        
                           <hr>
 
 
 
-                  </div>
 
-                   <div class=" tab-pane" id="achievement">
-
-                     <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Achievement 1</h4>
-                      <strong><i class="fas fa-info-circle "></i> Debating Competetion </strong>
+                          <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Academic 4</h4>
+                      <strong><i class="fas fa-info-circle "></i> Exam Title </strong>
 
                         <p class="text-muted">
-                          Arranged By : Northern University Bangladesh 
+                       {{$single_member_data->academic_4_xm_title}}
                         </p>
 
                         <hr>
 
+                       <!--  <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
 
-                        <strong><i class="fas fa-medal"></i> Winnig Type </strong>
+                        <p class="text-muted">CSE</p>
 
-                        <p class="text-muted">
-                         First Prize
-                        </p>
+                        <hr> -->
 
-                        <hr>
+                        <strong><i class="fas fa-university"></i> Institute Name</strong>
+                         <p class="text-muted">{{$single_member_data->academic_4_ins_name}}</p>
+
 
                        
 
+                        <hr>
+
+                       <!--  <strong><i class="fas fa-poll-h"></i> Result Type</strong>
+
+                        <p class="text-muted">Grade </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> CGPA / GPA</strong>
+
+                        <p class="text-muted">3.50 Out of (4)</p>
+
+                        <hr> -->
+
+                        <strong><i class="fas fa-calendar-week"></i>Year of Passing </strong>
+
+                        <p class="text-muted">{{$single_member_data->academic_4_year_of_passing}} </p>
+
+                       
+                          <hr>
+
+
+
+                          <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Academic 5</h4>
+                      <strong><i class="fas fa-info-circle "></i> Exam Title </strong>
+
+                        <p class="text-muted">
+                        {{$single_member_data->academic_5_xm_title}}
+                        </p>
+
+                        <hr>
+
+                       <!--  <strong><i class="fas fa-object-group"></i>  Concentration/ Major/Group </strong>
+
+                        <p class="text-muted">CSE</p>
+
+                        <hr> -->
+
+                        <strong><i class="fas fa-university"></i> Institute Name</strong>
+                         <p class="text-muted">{{$single_member_data->academic_5_ins_name}}</p>
+
+
+                       
+
+                        <hr>
+
+                       <!--  <strong><i class="fas fa-poll-h"></i> Result Type</strong>
+
+                        <p class="text-muted">Grade </p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-poll-h"></i> CGPA / GPA</strong>
+
+                        <p class="text-muted">3.50 Out of (4)</p>
+
+                        <hr> -->
+
+                        <strong><i class="fas fa-calendar-week"></i>Year of Passing </strong>
+
+                        <p class="text-muted">{{$single_member_data->academic_5_year_of_passing}} </p>
+
+                       
+                          <hr>
+
+                  </div>
+
+
+                  <div class=" tab-pane" id="title_of_thesis">
+
+                     <h4 class=" bg-info h4_bg_info" style="color: #fff;"> {{$single_member_data->title_of_thesis1}}  </h4>
+          
+                  
+
+                   {!! $single_member_data->thesis_description1 !!}
+
+                   <br>
+                   <br>
+                   
+                     <h4 class=" bg-info h4_bg_info" style="color: #fff;">  {{$single_member_data->title_of_thesis2}} </h4>
+                      <strong><i class="fas fa-info-circle "></i>   {!!$single_member_data->thesis_description2!!}
+                        <br>
+                      </strong>  
+
+                       
+
+                  </div>
+
+
+
+                   <div class=" tab-pane" id="experiences">
+
+                     <h4 class=" bg-info h4_bg_info" style="color: #fff;">  Academic Experiences: {{$single_member_data->total_year_of_academic_experience}}  Years. </h4>
+                      
+
+                      {!!$single_member_data->description_of_academic_exp!!}
+                       
+                    
+
+
+                     <h4 class=" bg-info h4_bg_info" style="color: #fff;"> Professional Experience: {{$single_member_data->total_year_of_professional_experience }} Years.</h4>
+                     
+
+                      {!!$single_member_data->description_of_professional_exp!!}
+
+                       
+
+                  </div> 
+
+                   <div class=" tab-pane" id="publication">
+
+                     {!!$single_member_data->publication_research!!}
+                     
+
+                  </div>
+
+                   <div class=" tab-pane" id="Seminar">
+
+                    
+                      {!!$single_member_data->seminar!!}
+
+               
+
+                  </div>
+
+
+
+                   <div class=" tab-pane" id="Lecture">
+
+                    
+                   
+                    {!!$single_member_data->lecture!!}
+
+                  </div>
+
+                   <div class=" tab-pane" id="Workshop">
+
+                   
+                           {!!$single_member_data->workshop!!}
+
+                  </div>
+
+
+             <div class=" tab-pane" id="Training">
+
+                   
+                          {!!$single_member_data->training!!}
 
 
                   </div>
+
+             <div class=" tab-pane" id="Professional_Membership">
+
+                    {!!$single_member_data->professional_membership!!}
+                      
+                  </div>
+
+
+
+
                 
 
                   <div class="tab-pane" id="settings">

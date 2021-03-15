@@ -77,7 +77,7 @@
 
 	<div class="text-center">
 		<p class="text-start">
-			{{$single_blog->blog_content}}
+			{!!$single_blog->blog_content!!}
 		</p>
 	</div>
   </div>

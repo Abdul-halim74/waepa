@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\DB;
 
 class AdminBlogController extends Controller
 {
+  public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
 	function create_blog(Request $request){
 
 		$all_blog_cat = DB::table('blog_categories')->get();
@@ -43,7 +49,7 @@ class AdminBlogController extends Controller
             ->join('users', 'blog_categories.created_by', '=', 'users.id')
             ->select('blog_categories.*', 'users.name as username')->get();
 
-		return view('backend.blog.create_blog_category',compact('all_category_info'));
+		return view('backend.blog.create_blog_category', compact('all_category_info'));
 	}
 
 
@@ -60,13 +66,15 @@ class AdminBlogController extends Controller
 
    		$title = $request->title;
    		$description = $request->description;
+      $excerpt = $request->excerpt;
 
    		$last_inserted_id = Blog::insertGetId([
    			'blog_heading'=>$title,
    			'blog_content'=>$description,
    			'active_status'=>1,
    			'created_by'=>$user_id,
-   			'blog_categories'=>$blog_cat_implode
+   			'blog_categories'=>$blog_cat_implode,
+        'excerpt_text'=>$excerpt
 
    		]);
 
@@ -193,6 +201,7 @@ return view('backend.blog.bloglist', compact('all_blog_info'));
 
     	$edit_title =  $request->edit_title;
        $blog_category =  $request->blog_category;
+       $exceprt =  $request->exceprt;
 
        $blog_category_emp = implode(',', $blog_category);
 
@@ -205,7 +214,8 @@ return view('backend.blog.bloglist', compact('all_blog_info'));
         'blog_categories' => $blog_category_emp,
     		'blog_content' => $edit_description,
     		'updated_by'=> $user_id,
-    		'updated_at' => date('Y-m-d H:i:s')
+    		'updated_at' => date('Y-m-d H:i:s'),
+        'excerpt_text'=>$exceprt
     	]);
 
     	if ($request->hasFile('edit_blog_image')) {

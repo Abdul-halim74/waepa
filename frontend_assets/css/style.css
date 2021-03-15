@@ -526,7 +526,7 @@ section {
 .about .content h2 {
   font-weight: 700;
   font-size: 48px;
-  line-height: 60px;
+  
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -564,7 +564,7 @@ section {
 --------------------------------------------------------------*/
 .counts {
   background: #ff284f;
-  padding: 200px 0 20px 0;
+ /* padding: 200px 0 20px 0;*/
   color: #fff;
 }
 
@@ -2023,7 +2023,7 @@ section {
     border: 3px solid #adb5bd;
     margin: 0 auto;
     padding: 3px;
-    width: 100px;
+  
 }
 .profile-username {
     font-size: 21px;

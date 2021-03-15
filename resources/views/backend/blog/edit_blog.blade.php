@@ -10,12 +10,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Blog</h1>
+            <h1>Edit Publications</h1>
           </div>
+          
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Admin</a></li>
-              <li class="breadcrumb-item active">Edit Blog</li>
+              <li class="breadcrumb-item active">Edit Publications</li>
             </ol>
           </div>
         </div>
@@ -31,7 +32,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Blog Content</h3>
+                <h3 class="card-title">Publications Content</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -43,7 +44,7 @@
                   <input type="hidden"  name="hidden_id" value="{{$single_post_info->id}}">
 
                    <div class="form-group">
-                    <label for="exampleInputEmail1">Select Blog Category</label>
+                    <label for="exampleInputEmail1">Select Publications Category</label>
 
                      <?php 
                     $cat = $single_post_info->blog_categories;
@@ -94,9 +95,16 @@
                   </div>
 
 
+
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">Excerpt</label>
+                    
+                    <textarea class="form-control summernote" name="exceprt" rows="10">{{$single_post_info->excerpt_text}}</textarea>
+                  </div>
+
                    <div class="form-group">
                     <label for="exampleInputEmail1">Description</label>
-                    <textarea class="form-control" name="edit_description" name="description" rows="10">{{$single_post_info->blog_content}}</textarea>
+                    <textarea class="form-control summernote" name="edit_description" name="description" rows="10">{{$single_post_info->blog_content}}</textarea>
                   </div>
 
 
@@ -140,6 +148,12 @@
 
 @section('js')
 
+<script>
+  $(function () {
+    //Add text editor
+    $('.summernote').summernote()
+  })
+</script>
 
 
   @if(Session::has('status'))

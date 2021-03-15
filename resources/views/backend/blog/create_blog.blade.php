@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Create a Blog</h1>
+            <h1>Create a Publications</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Admin</a></li>
-              <li class="breadcrumb-item active">Create Blog</li>
+              <li class="breadcrumb-item active">Create Publications</li>
             </ol>
           </div>
         </div>
@@ -33,7 +33,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Blog Content</h3>
+                <h3 class="card-title">Publications Content</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -43,7 +43,7 @@
                 <div class="card-body">
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Select Blog Category</label>
+                    <label for="exampleInputEmail1">Select Publications Category</label>
 
                       <select class="selectpicker form-control" name="blog_category[]" multiple data-live-search="true">
                        
@@ -59,13 +59,21 @@
 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Title</label>
-                    <input type="text" class="form-control" id="" name="title" placeholder="Enter Blog Heading">
+                    <input type="text" class="form-control" id="" name="title" placeholder="Enter Publications Heading">
                   </div>
 
 
                    <div class="form-group">
+
+                      <label for="exampleInputEmail1">Excerpt</label>
+
+                      <textarea class="form-control summernote" name="excerpt" rows="10"></textarea>
+
+                  </div>
+
+                   <div class="form-group">
                     <label for="exampleInputEmail1">Description</label>
-                    <textarea class="form-control" name="description" name="description" rows="10"></textarea>
+                    <textarea class="form-control summernote" name="description" name="description" rows="10"></textarea>
                   </div>
 
 
@@ -104,7 +112,12 @@
 
 @section('js')
 
-
+<script>
+  $(function () {
+    //Add text editor
+    $('.summernote').summernote()
+  })
+</script>
 
   @if(Session::has('status'))
 
